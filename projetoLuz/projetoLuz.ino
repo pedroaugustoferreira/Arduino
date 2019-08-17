@@ -23,7 +23,8 @@ int COD = 0;
 
 #define BUTTON_PIN 3
 #define BUTTON_PIN2 4 
-#define BUTTON_PIN3 5
+#define BUTTON_PIN3 7
+
 
 
 
@@ -31,6 +32,7 @@ int COD = 0;
 // Instantiate a Bounce object :
 Bounce debouncer = Bounce();
 Bounce debouncer2 = Bounce(); 
+Bounce debouncer3 = Bounce(); 
 int d = 0;
 
 
@@ -39,12 +41,18 @@ unsigned long buttonPressTimeStamp;
 
 //--- RELEY
 const int relayPin = 5;
+const int relayPin2 = 6;
 //--- RELEY
 
 void setup() {
 
 //--- RELEY
 pinMode(relayPin, OUTPUT);
+pinMode(relayPin2, OUTPUT);
+digitalWrite(relayPin, HIGH);
+digitalWrite(relayPin2, HIGH);
+
+
 //--- RELEY
   
 
@@ -61,12 +69,15 @@ pinMode(relayPin, OUTPUT);
   // Setup the button with an internal pull-up :
   pinMode(BUTTON_PIN,INPUT_PULLUP);
   pinMode(BUTTON_PIN2,INPUT_PULLUP);
+  pinMode(BUTTON_PIN3,INPUT_PULLUP);
   
   // After setting up the button, setup the Bounce instance :
   debouncer.attach(BUTTON_PIN);
   debouncer2.attach(BUTTON_PIN2);
+  debouncer3.attach(BUTTON_PIN3);
   debouncer.interval(5);
   debouncer2.interval(5);
+  debouncer3.interval(5);
   
 
   
@@ -77,6 +88,7 @@ void loop() {
    // Update the Bounce instance :
   debouncer.update();
   debouncer2.update();
+  debouncer3.update();
 
   // Call code if Bounce fell (transition from HIGH to LOW) :
   if ( debouncer.fell()  ) {;
@@ -101,6 +113,19 @@ void loop() {
      buttonPressTimeStamp = millis();
   
   }
+
+  // Call code if Bounce fell (transition from HIGH to LOW) :
+  if ( debouncer3.fell()  ) {;
+  
+   // Serial.println( millis()-buttonPressTimeStamp );
+    if ( (millis()-buttonPressTimeStamp) > 100 ){
+      bt3();
+    }
+       
+     buttonPressTimeStamp = millis();
+  
+  }
+
 
 
 //------IR
@@ -148,5 +173,12 @@ void bt1() {
 }
 void bt2() {
   Serial.println("Ok - BT2"); 
-  digitalWrite(relayPin, !digitalRead(relayPin));
+  digitalWrite(relayPin2, !digitalRead(relayPin2));
+}
+
+void bt3() {
+  Serial.println("Ok - BT3");
+   
+  digitalWrite(relayPin,  !digitalRead(relayPin));
+  digitalWrite(relayPin2, digitalRead(relayPin));
 }
