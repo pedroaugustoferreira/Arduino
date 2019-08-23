@@ -23,7 +23,7 @@ int COD = 0;
 
 #define BUTTON_PIN 3
 #define BUTTON_PIN2 4 
-#define BUTTON_PIN3 7
+#define BUTTON_PIN3 5
 
 
 
@@ -40,8 +40,8 @@ unsigned long buttonPressTimeStamp;
 
 
 //--- RELEY
-const int relayPin = 5;
-const int relayPin2 = 6;
+const int relayPin = 6;
+const int relayPin2 = 7;
 //--- RELEY
 
 void setup() {
@@ -58,7 +58,7 @@ digitalWrite(relayPin2, HIGH);
 
 //------IR
 
- mySwitch.enableReceive(0);
+ mySwitch.enableReceive(0); //D2
 //------IR
   
   
