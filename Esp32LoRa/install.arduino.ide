@@ -1,1 +1,30 @@
-teste
+Referencias:
+https://www.fernandok.com/2019/03/instalacao-do-esp32-lora-na-arduino-ide.html
+https://www.youtube.com/watch?v=nbeIVnJod_Y&t=7s
+
+1. Instalação da placa ESP32 (A placa Heltec_WiFi_LoRa_32 e Heltec_WiFi_Kit_32 também serão instaladas)
+  1.1 -  Na sua Arduino IDE vá em:
+           Arduino -> Preferências
+           Em URLs Adicionais para Gerenciadores de Placas, adicione a url:
+           https://dl.espressif.com/dl/package_esp32_index.json
+  1.2 -  Na sua Arduino IDE vá em:
+           Ferramentas -> Placas -> Gerenciador de placas
+           Pesquise por: esp32
+           Instale o pacote descrito como: esp32 by Espressif Systems
+           
+2.(para windows). Instalação dos drivers Silicon Labs CP210x USB para UART Bridge VCP.
+    Acesse: https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
+    Baixe e instale o driver compatível com o seu S.O.   
+    
+3. Instalação da biblioteca LoRa
+    Na sua Arduino IDE vá em:
+    Sketch -> Incluir biblioteca -> Gerenciar bibliotecas
+    Pesquise por: LoRa
+    Instale a biblioteca descrita como: LoRa (distribuída por Sandeep Mistry)
+
+4. Instalação da biblioteca SSD1306 para o display  
+    Na sua Arduino IDE vá em:
+    Sketch -> Incluir biblioteca -> Gerenciar bibliotecas
+    Pesquise por: SSD1306
+    Instale a biblioteca descrita como: ESP8266 and ESP32 Oled Driver for SSD1306 display
+           
