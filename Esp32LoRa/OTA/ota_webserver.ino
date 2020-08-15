@@ -6,7 +6,7 @@
 
 const char* host = "esp32";
 const char* ssid = "VIVO-3A10";
-const char* password = "97D1FD3A11";
+const char* password = "XXXX";
 
 //variabls for blinking an LED with Millis
 const int led = 2; // ESP32 Pin to which onboard LED is connected
